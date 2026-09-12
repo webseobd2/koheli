@@ -21,7 +21,7 @@ const CategorySection = () => {
   const getCategories = (categories: ICategory[]) => {
     return categories?.filter((cat) =>
       products?.some((prod) => prod?.category === cat?._id)
-    );
+    ).filter(item => item.status === 'active');
   };
 
   return (

@@ -16,8 +16,8 @@ const AllProducts = () => {
     (product) => product.status === "active"
   );
 
-  const displayedProducts = activeProducts.slice(0, visibleCount);
-  const hasMoreProducts = visibleCount < activeProducts.length;
+  const displayedProducts = activeProducts?.slice(0, visibleCount);
+  const hasMoreProducts = visibleCount < activeProducts?.length;
 
   return (
     <div className="container mx-auto py-5 pb-32 px-4">
@@ -25,7 +25,7 @@ const AllProducts = () => {
         <h2 className="text-xl lg:text-2xl font-bold">Best selling products</h2>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
-        {displayedProducts.map((product) => (
+        {displayedProducts?.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
       </div>

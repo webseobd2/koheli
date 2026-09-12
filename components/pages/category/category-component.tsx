@@ -17,7 +17,7 @@ export default function CategoryComponent({ slug }: CategoryProps) {
 
   const categoryProducts = activeProducts.filter(
     (p) => p?.category === category?._id
-  );
+  ).filter(prod => prod.status === 'active');
 
   return (
     <div className="container mx-auto px-4 py-8">

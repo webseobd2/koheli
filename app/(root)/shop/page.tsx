@@ -15,10 +15,10 @@ const ShopPage = () => {
       product.description.includes(search);
 
     return matchesSearch;
-  });
+  }).filter(prod => prod.status === 'active');
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 min-h-screen bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           {/* <h2 className="text-3xl font-bold">{category.name}</h2>
@@ -26,6 +26,9 @@ const ShopPage = () => {
             <Button variant="outline">See All</Button>
           </Link> */}
         </div>
+        {
+          filtersProducts?.length === 0 && <div className="py-10 text-center ">Products not found</div>
+        }
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {filtersProducts.map((product) => (
             <ProductCard key={product?._id} product={product} />

@@ -11,6 +11,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
+     <Link  href={`/product/${product.slug}`}>
       <div className="aspect-square relative">
         <Image
           src={product.image || "/placeholder.svg"}
@@ -19,6 +20,7 @@ export function ProductCard({ product }: ProductCardProps) {
           className="object-cover"
         />
       </div>
+      </Link>
       <CardContent className="p-4 flex-1">
         {product?.link && (
           <Link
