@@ -64,7 +64,13 @@ export default async function RootLayout({
   const products: IProduct[] = productsData?.data;
 
   // GET CATEGORYS
-  const catResponse = await fetch(`${BASE_URL}/api/categories`);
+  const catResponse = await fetch(`${BASE_URL}/api/categories`,
+    {
+      next: {
+        revalidate: 3600,
+      },
+    }
+  );
   const categoriesData = await catResponse.json();
   const categories: ICategory[] = categoriesData?.data || [];
 
